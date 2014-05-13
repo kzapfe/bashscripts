@@ -1,0 +1,7 @@
+Y ahora va la estadistica 
+radio	0.05917864376269049
+Contamos tantos datos 10000000
+Media	0.153502
+Dispersion	0.192041
+-1.80599e-13
+0.960497
