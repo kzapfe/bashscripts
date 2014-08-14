@@ -27,6 +27,9 @@ Nametex=$Auxiliar"-plot.tex"
 
 #Namepdf=$Auxiliar"-plot.pdf"
 
+#asegurate que no hay blank lines
+#sed -i '/^$/d' acumulable.dat
+#take toooo long, better be carefull with the data
 
 ##El sin armadillo es mejor
 acumulador01.x 

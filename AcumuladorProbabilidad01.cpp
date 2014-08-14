@@ -32,9 +32,10 @@ int main(){
   /*los primeros dos renglones de 
     los archivos deberian ser
     encabezados con info global*/
-  entrada>>encabezado;
-  entrada>>dumy;
-  
+  getline(entrada,encabezado);
+  getline(entrada,dumy);
+
+
   while(entrada >>aux1){
     if(aux1>maximo) maximo=aux1;
     if(aux1<minimo) minimo=aux1;
@@ -48,12 +49,13 @@ int main(){
   
   //Bajamos el maximo a algo para plotear
   double verdaderomaximo=maximo;
-  if(maximo>0.8)maximo=0.8;
+  //if(maximo>0.8)maximo=0.8;
+ 
 
   //veamos si funciona asi de baboso
   entrada.open("acumulable.dat");
 
-   const int cajas=500; 
+   const int cajas=50; 
    int  Histocuenta[cajas]={0};
   // //llenamos la matriz de las estadisticas
    double  dispersion=0.0;
@@ -67,13 +69,14 @@ int main(){
   /*los primeros dos renglones de 
     los archivos deberian ser
     encabezados con info global*/
-   entrada>>encabezado;
-   entrada>>dumy;
+   
       
+   getline(entrada,encabezado);
+   getline(entrada,dumy);
    
-   while(entrada >>aux1){
+   while(entrada>>aux1){
    
-     dispersion+=aux1*aux1;
+     dispersion+=(aux1*aux1);
      
      //Si quieres poner un falso maximo para plotear mejor
      //tendras que hacer mas robusta la operacion indice.
@@ -94,13 +97,14 @@ int main(){
    //de histogramador a Prob acumulada: esta
    auxinteger=0;
    deltax=(maximo-minimo)/(double)cajas;
+
    for(int j=0; j<cajas;j++){
      double centro;
      //Y esta: cambiar = por +=
      auxinteger+=(double)Histocuenta[j];
      //aqui viene P(x)
      aux1=(double)auxinteger/Normalizador;
-     aux2=(double)Histocuenta[j]/Normalizador/deltax;
+     aux2=(double)Histocuenta[j];
      centro=minimo+(j+0.500)*deltax;            
      probabilidades<<centro<<"\t"<<aux1<<"\t"<<aux2<<endl;
 
