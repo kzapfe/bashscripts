@@ -1,0 +1,4 @@
+Como ponerle fecha de modificacion  a los directorios o archivos
+
+for f in Evento*; do mv -n $f "$f-$(date -r $f +%Y%m%d)"; done
+
