@@ -21,15 +21,17 @@ set table "ZerosImag.dat"
 splot "$NameData" using 1:2:4
 unset table
 unset contour
+
 set grid
-set xl "$\xi_q1$"
-set yl "$\xi_q2$"
+rango=1.2
+set xl "$\xi_{q2}$"
+set yl "$\xi_ {p2}$"
 set term epslatex standalone lw 2 color size 16cm,16cm clip solid
 set out "$NameTex"
 set sty dat lines
 set size ratio -1
-set xr[-0.2:0.2]
-set yr[-0.2:0.2]
+set xr[-rango:rango]
+set yr[-rango:rango]
 plot "ZerosImag.dat" w l lw 2 t "Imaginary Nodal Manifold",  "ZerosReal.dat" w l lw 3 lc "black" t "Real Nodal Manifold"
 set out
 EOF
